@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <center>
+  <img id="gifImage" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Animated GIF"> </center>
+<br>
+  <title>Will you be my Valentine?</title>
+  <style>
+    .button {
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      color: #fff;
+    }
+
+    #greenButton {
+      background-color: green;
+    }
+
+    #redButton {
+      background-color: red;
+    }
+
+    /* Add this style for the enlarged green button */
+    #greenButton.enlarged {
+      font-size: 16px; /* You can adjust the initial font size here */
+    }
+    
+    #gifImage {
+      width: 200px; /* Set your desired width */
+      height: auto; /* Auto-adjust height to maintain aspect ratio */
+    }
+  </style>
+</head>
+<body>
+<h1><center>Will you be my Valentine?</center></h1>
+<center>
+  
+<button class="button" id="greenButton" onclick="redirectToNewPage()">Yes</button>
+<button class="button" id="redButton" onclick="changeRedButtonLabel()">No</button>
+</center>
+<script>
+  let redButtonLabelIndex = 0;
+  const redButtonLabels = [
+    "Are you sure?", "Really Sure??", "Are you positive???", "Pini Plz?",
+    "Just think about it?", "If you say no, I'll be very sad", "I'll be very very sad",
+    "I'll be very very very sad", "I'll be very very very very sad", "Ok fine, I'll stop asking...",
+    "Just kidding, PLEASE SAY YES", "I'll be very very very very very sad", "You are breaking my heart ;("
+  ];
+
+  function changeRedButtonLabel() {
+    const redButton = document.getElementById("redButton");
+    redButton.innerText = redButtonLabels[redButtonLabelIndex];
+    redButtonLabelIndex = (redButtonLabelIndex + 1) % redButtonLabels.length;
+
+    const greenButton = document.getElementById("greenButton");
+    const currentSize = parseFloat(window.getComputedStyle(greenButton).fontSize);
+    greenButton.style.fontSize = (currentSize + 10) + "px";
+  }
+
+  function redirectToNewPage() {
+    window.location.href = "yes.html";
+  }
+</script>
+
+</body>
+</html>
