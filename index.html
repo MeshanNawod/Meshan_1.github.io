@@ -3,68 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <center>
-  <img id="gifImage" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Animated GIF"> </center>
-<br>
-  <title>Will you be my Valentine?</title>
   <style>
-    .button {
-      padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-      border: none;
-      color: #fff;
+    body { background-color: #ffffff; }
+    .button { 
+      padding: 10px; 
+      margin: 5px; 
+      cursor: pointer; 
+      border: none; 
+      color: #000; 
+      border-radius: 5px; 
+      font-family: Arial, sans-serif; 
+      font-size: 16px; 
+      font-weight: normal; /* Remove bold style */
+      background-color: #e0e0e0;
     }
-
-    #greenButton {
-      background-color: green;
-    }
-
-    #redButton {
-      background-color: red;
-    }
-
-    /* Add this style for the enlarged green button */
-    #greenButton.enlarged {
-      font-size: 16px; /* You can adjust the initial font size here */
-    }
-    
-    #gifImage {
-      width: 200px; /* Set your desired width */
-      height: auto; /* Auto-adjust height to maintain aspect ratio */
-    }
+    #greenButton { background-color: #4caf50; color: #fff; }
+    #redButton { background-color: #f44336; color: #fff; }
+    #greenButton.enlarged { font-size: 20px; }
+    #gifImage { width: 200px; height: auto; }
   </style>
+  <title>Will you be my Valentine?</title>
 </head>
 <body>
-<h1><center>Will you be my Valentine?</center></h1>
-<center>
-  
-<button class="button" id="greenButton" onclick="redirectToNewPage()">Yes</button>
-<button class="button" id="redButton" onclick="changeRedButtonLabel()">No</button>
-</center>
-<script>
-  let redButtonLabelIndex = 0;
-  const redButtonLabels = [
-    "Are you sure?", "Really Sure??", "Are you positive???", "Pini Plz?",
-    "Just think about it?", "If you say no, I'll be very sad", "I'll be very very sad",
-    "I'll be very very very sad", "I'll be very very very very sad", "Ok fine, I'll stop asking...",
-    "Just kidding, PLEASE SAY YES", "I'll be very very very very very sad", "You are breaking my heart ;("
-  ];
+  <h1 style="text-align:center;">Will you be my Valentine?</h1>
+  <center>
+    <img id="gifImage" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Animated GIF"><br>
+    <button class="button" id="greenButton" onclick="redirectToNewPage()">Yes</button>
+    <button class="button" id="redButton" onclick="changeRedButtonLabel()">No</button>
+  </center>
+  <script>
+    let redButtonLabelIndex = 0;
+    const redButtonLabels = ["Are you sure?", "Really Sure??", "Are you positive???", "Pini Plz?",
+      "Just think about it?", "If you say no, I'll be very sad", "I'll be very very sad",
+      "I'll be very very very sad", "I'll be very very very very sad", "Ok fine, I'll stop asking...",
+      "Just kidding, PLEASE SAY YES", "I'll be very very very very very sad", "You are breaking my heart ;("];
 
-  function changeRedButtonLabel() {
-    const redButton = document.getElementById("redButton");
-    redButton.innerText = redButtonLabels[redButtonLabelIndex];
-    redButtonLabelIndex = (redButtonLabelIndex + 1) % redButtonLabels.length;
+    function changeRedButtonLabel() {
+      const redButton = document.getElementById("redButton");
+      redButton.innerText = redButtonLabels[redButtonLabelIndex];
+      redButtonLabelIndex = (redButtonLabelIndex + 1) % redButtonLabels.length;
 
-    const greenButton = document.getElementById("greenButton");
-    const currentSize = parseFloat(window.getComputedStyle(greenButton).fontSize);
-    greenButton.style.fontSize = (currentSize + 10) + "px";
-  }
+      const greenButton = document.getElementById("greenButton");
+      greenButton.style.fontSize = `${parseFloat(window.getComputedStyle(greenButton).fontSize) + 15}px`;
+    }
 
-  function redirectToNewPage() {
-    window.location.href = "yes.html";
-  }
-</script>
-
+    function redirectToNewPage() {
+      window.location.href = "yes.html";
+    }
+  </script>
 </body>
 </html>
